@@ -30,3 +30,23 @@ yarn-error.log*
 
 # Misc
 .next/cache
+
+# Local env override
+.env.local
+
+# Caches and build artifacts
+.cache/
+.parcel-cache/
+.turbo/
+coverage/
+
+# Editor history and OS files
+*.localhistory
+*.sublime-workspace
+.idea/
+.vscode/
+
+# Optional package manager files
+.pnpm-debug.log
+.pnp.cjs
+.pnp.js
