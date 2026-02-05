@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b1220;
+  --text: #e6eef8;
+  --muted: #94a3b8;
+  --border: #1f2937;
+  --accent: #06b6d4;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Small utility overrides for the minimal theme */
+
+a { text-decoration: none; color: var(--accent) }
