@@ -18,28 +18,8 @@
   --focus-ring: rgba(255,255,255,0.18);
 }
 
-/* Light theme overrides */
-[data-theme="light"] {
-  --bg: #ffffff;
-  --text: #0b1220;
-  --muted: #6b7280;
-  --border: #e6eef8;
-  --accent: #06b6d4;
-
-  /* UI tokens for light theme */
-  --btn-bg: #0b1220;
-  --btn-text: #f3f4f6;
-  --btn-ghost-bg: transparent;
-  --btn-border: rgba(11,18,32,0.06);
-
-  --header-bg: rgba(255,255,255,0.95);
-  --badge-bg: rgba(0,0,0,0.04);
-  --badge-border: rgba(0,0,0,0.06);
-
-  --surface: #ffffff;
-  --surface-border: #e6eef8;
-  --focus-ring: rgba(0,0,0,0.12);
-}
+/* Light theme removed — site is dark-only. */
+/* Any light-theme CSS has been intentionally removed to keep a single dark theme. */
 
 html, body {
   height: 100%;
@@ -160,19 +140,7 @@ html.theme-ready, body { transition: background-color 180ms ease, color 180ms ea
 .btn:active { transform: translateY(0) scale(0.98); }
 
 /* use CSS variables so buttons follow theme */
-:root {
-  --btn-bg: #ffffff;
-  --btn-text: #0b1220;
-  --btn-ghost-bg: transparent;
-  --btn-border: rgba(255,255,255,0.06);
-}
-
-[data-theme="light"] {
-  --btn-bg: #0b1220;
-  --btn-text: #f3f4f6;
-  --btn-ghost-bg: transparent;
-  --btn-border: rgba(11,18,32,0.06);
-}
+/* Buttons follow the dark theme tokens defined above. */
 
 .btn-primary {
   background: var(--btn-bg);

@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -43,11 +42,6 @@ export default function Header() {
           </a>
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle />
-        </div>
-
-
 
         {/* Mobile toggle */}
         <div className="md:hidden">
@@ -69,7 +63,6 @@ export default function Header() {
             <li><Link href="/packages" onClick={() => setOpen(false)} className="block px-3 py-2 rounded text-[var(--muted)] hover:bg-[rgba(255,255,255,0.04)]">Packages</Link></li>
             <li><Link href="/midna" onClick={() => setOpen(false)} className="block px-3 py-2 rounded text-[var(--muted)] hover:bg-[rgba(255,255,255,0.04)]">Midna</Link></li>
             <li><Link href="#contact" onClick={() => setOpen(false)} className="block px-3 py-2 rounded text-[var(--muted)] hover:bg-[rgba(255,255,255,0.04)]">Contact</Link></li>
-            <li className="pt-2 border-t border-slate-800"><ThemeToggle /></li>
             <li><a className="block px-3 py-2 rounded text-[var(--muted)] hover:bg-[rgba(255,255,255,0.04)]" href="https://github.com/viraxi/viraxi-website" target="_blank" rel="noopener noreferrer">Source</a></li>
           </ul>
         </nav>
