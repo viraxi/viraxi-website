@@ -15,7 +15,33 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: 16px;
+  line-height: 1.6;
 }
+
+/* Typographic rhythm and measure */
+:root {
+  --measure: 66ch;
+}
+
+.content-measure {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  line-height: 1.05;
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 1.5rem; }
 
 /* Small utility overrides for the minimal theme */
 
@@ -55,4 +81,38 @@ a { text-decoration: none; color: var(--accent) }
 .btn:focus-visible {
   outline: 3px solid rgba(255,255,255,0.14);
   outline-offset: 4px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 420ms cubic-bezier(.2,.8,.2,1) both; }
+.animate-fade-up.delay-75 { animation-delay: 75ms }
+
+/* Small helpers for the mobile nav */
+.transition-max-h { transition: max-height 220ms cubic-bezier(.2,.8,.2,1); }
+
+/* Button micro-interactions: hover lift, press scale, outline/sm variants */
+.btn {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium transition-all duration-150 transform;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+
+.btn-primary {
+  @apply bg-white text-slate-900;
+  box-shadow: 0 6px 18px rgba(255,255,255,0.02);
+}
+.btn-primary:hover { box-shadow: 0 10px 28px rgba(255,255,255,0.03); }
+
+.btn-outline {
+  @apply border border-slate-600 text-slate-200 bg-transparent hover:bg-white/5;
+}
+
+.btn-sm { @apply px-3 py-1.5 text-sm rounded-md; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .btn { transition: none !important; animation: none !important; }
 }

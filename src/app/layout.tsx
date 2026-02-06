@@ -1,6 +1,7 @@
 import './styles/globals.css'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Header from '../components/Header'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
