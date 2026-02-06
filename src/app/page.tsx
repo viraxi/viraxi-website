@@ -22,6 +22,15 @@ export default function Home() {
           <li className="text-sm text-gray-300">Accessible & semantic markup</li>
           <li className="text-sm text-gray-300">Minimal, maintainable UI</li>
         </ul>
+
+        <div className="mt-8 p-6 rounded-md bg-slate-900 border border-slate-800">
+          <h4 className="text-lg font-semibold text-slate-100 mb-1">Featured project: Midna</h4>
+          <p className="text-gray-300 mb-3">Midna auto-discovers and manages Python dependencies by scanning your code and requirements files. It helps keep environments clean and repeatable. <a href="/midna" className="text-gray-200 hover:text-white">Learn more</a></p>
+          <div className="flex items-center justify-center gap-3">
+            <a className="btn btn-primary" href="/midna">Midna page</a>
+            <a className="btn btn-ghost" href="https://github.com/viraxi/midna" target="_blank" rel="noopener noreferrer">Repository</a>
+          </div>
+        </div>
       </section>
 
       <section id="contact" className="mt-20 max-w-2xl mx-auto text-center text-gray-300">
