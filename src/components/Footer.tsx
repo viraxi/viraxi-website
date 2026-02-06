@@ -1,19 +1,20 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer className="w-full py-8 px-6 border-t border-slate-800 mt-12">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-start justify-between gap-6">
         <div className="md:max-w-xs">
-          <Link href="/" className="flex items-center gap-3"><img src="/logo-48.png" alt="Viraxi" width={36} height={36} /><span className="font-semibold text-[var(--text)]">Viraxi</span></Link>
+          <Link href="/" className="flex items-center gap-3"><Image src="/logo-48.png" alt="Viraxi" width={36} height={36} /><span className="font-semibold text-[var(--text)]">Viraxi</span></Link>
           <p className="mt-4 text-sm text-[var(--muted)]">Design and build modern, minimal web experiences focused on clarity, performance, and accessibility.</p>
         </div>
 
         <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-6">
           <div>
-            <h4 className="text-sm font-semibold text-[var(--text)] mb-3">Company</h4>
+            <h4 className="text-sm font-semibold text-[var(--text)] mb-3">Organization</h4>
             <ul className="space-y-2 text-[var(--muted)] text-sm">
-              <li><a href="#about" className="hover:text-white">About</a></li>
+              <li><a href="/about" className="hover:text-white">About</a></li>
               <li><a href="/packages" className="hover:text-white">Packages</a></li>
             </ul>
           </div>
