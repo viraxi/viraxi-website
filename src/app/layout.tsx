@@ -1,9 +1,13 @@
 import './styles/globals.css'
 import Image from 'next/image'
+import Script from 'next/script'
+import { cookies as nextCookies } from 'next/headers'
 import { Inter } from 'next/font/google'
 import Header from '../components/Header'
-
+import Footer from '../components/Footer'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+
+
 
 export const metadata = {
   title: 'Viraxi',
@@ -29,25 +33,25 @@ export const metadata = {
   }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // prefer cookie on server to avoid hydration mismatches for returning users
+  const cookieStore = await nextCookies()
+  const cookieTheme = cookieStore?.get ? cookieStore.get('theme')?.value : undefined
+  const initialTheme = cookieTheme === 'dark' ? 'dark' : cookieTheme === 'light' ? 'light' : undefined
+
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable}${initialTheme === 'dark' ? ' dark' : ''}`} data-theme={initialTheme}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Inline script to set initial theme quickly and avoid flash */}
+        <Script id="theme-init" strategy="beforeInteractive">{`(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);if(t==='dark'){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}try{document.cookie='theme='+t+';path=/;max-age='+60*60*24*365+';SameSite=Lax'}catch(e){} }catch(e){} })()`}</Script>
       </head>
       <body>
-        <header className="w-full py-6 px-6 border-b border-gray-800 bg-transparent">
-          <div className="max-w-4xl mx-auto flex items-center gap-4">
-            <Image src="/logo-48.png" alt="Viraxi" width={48} height={48} />
-            <h1 className="text-lg font-semibold text-slate-100">Viraxi</h1>
-          </div>
-        </header>
+        <Header />
         <main className="min-h-[70vh] flex items-center justify-center px-6">
           <div className="w-full max-w-4xl">{children}</div>
         </main>
-        <footer className="w-full py-6 px-6 border-t border-gray-800">
-          <div className="max-w-4xl mx-auto text-sm text-gray-400">© {new Date().getFullYear()} Viraxi</div>
-        </footer>
+        <Footer />
       </body>
     </html>
   )

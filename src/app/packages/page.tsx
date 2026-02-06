@@ -1,4 +1,5 @@
 import PackageCard from '@/components/PackageCard'
+import SectionTitle from '@/components/SectionTitle'
 
 export const metadata = {
   title: 'Packages — Viraxi',
@@ -8,10 +9,9 @@ export const metadata = {
 export default function PackagesPage() {
   return (
     <section className="py-24">
-      <div className="max-w-4xl mx-auto text-gray-300">
+      <div className="max-w-4xl mx-auto text-[var(--muted)]">
         <header className="text-center">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-100">Packages</h1>
-          <p className="lead mt-2">Small, focused tools and libraries maintained by Viraxi. Click a package to learn more.</p>
+          <SectionTitle badge="Tools" title="Packages" subtitle="Small, focused tools and libraries maintained by Viraxi. Click a package to learn more." />
         </header>
 
         <div className="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2">

@@ -6,9 +6,9 @@ export const metadata = {
 export default function MidnaPage() {
   return (
     <section className="py-24">
-      <div className="max-w-3xl mx-auto text-gray-300">
+      <div className="max-w-3xl mx-auto text-[var(--muted)]">
         <header className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-100">Midna</h1>
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[var(--text)]">Midna</h1>
           <p className="mt-2 text-lg">The smart Python package assistant — auto-discovers what packages your project actually uses.</p>
           <div className="mt-4 flex items-center justify-center gap-3">
             <a className="btn btn-primary" href="https://pypi.org/project/midna/" target="_blank" rel="noopener noreferrer">Install on pip</a>
@@ -17,8 +17,8 @@ export default function MidnaPage() {
         </header>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-slate-100 mb-2">What it does</h2>
-          <p className="mb-2">Midna scans your project for imports and requirements files and proposes the minimal set of packages you actually need. It supports installing missing packages, cleaning unused ones, and offers a dry-run mode for safety.</p>
+          <h2 className="text-xl font-semibold text-[var(--text)] mb-2">What it does</h2>
+          <p className="mb-2 text-[var(--muted)]">Midna scans your project for imports and requirements files and proposes the minimal set of packages you actually need. It supports installing missing packages, cleaning unused ones, and offers a dry-run mode for safety.</p>
           <pre className="bg-slate-900 text-sm p-4 rounded text-gray-200">{`# Install
 pip install midna
 
