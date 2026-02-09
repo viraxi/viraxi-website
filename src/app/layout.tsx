@@ -36,15 +36,13 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // prefer cookie on server to avoid hydration mismatches for returning users
   const cookieStore = await nextCookies()
-  const cookieTheme = cookieStore?.get ? cookieStore.get('theme')?.value : undefined
-  const initialTheme = cookieTheme === 'dark' ? 'dark' : cookieTheme === 'light' ? 'light' : undefined
+  // Force dark mode, remove theme logic
 
   return (
-    <html lang="en" className={`${inter.variable}${initialTheme === 'dark' ? ' dark' : ''}`} data-theme={initialTheme}>
+    <html lang="en" className={`${inter.variable} dark`} data-theme="dark">
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Inline script to set initial theme quickly and avoid flash */}
-        <Script id="theme-init" strategy="beforeInteractive">{`(function(){try{var t=localStorage.getItem('theme');if(!t){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t);if(t==='dark'){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}try{document.cookie='theme='+t+';path=/;max-age='+60*60*24*365+';SameSite=Lax'}catch(e){} }catch(e){} })()`}</Script>
+        {/* Theme logic removed: always dark mode */}
       </head>
       <body>
         <Header />
