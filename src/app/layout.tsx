@@ -1,7 +1,6 @@
 import './styles/globals.css'
 import Image from 'next/image'
 import Script from 'next/script'
-import { cookies as nextCookies } from 'next/headers'
 import { Inter } from 'next/font/google'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -33,11 +32,8 @@ export const metadata = {
   }
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // prefer cookie on server to avoid hydration mismatches for returning users
-  const cookieStore = await nextCookies()
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Force dark mode, remove theme logic
-
   return (
     <html lang="en" className={`${inter.variable} dark`} data-theme="dark">
       <head>
